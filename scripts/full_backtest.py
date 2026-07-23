@@ -17,7 +17,7 @@ ABBR = {
 }
 
 ELIGIBLE_MIN_GAMES = 10
-LEAN_THRESHOLD = 0.52  # matches site JS: pOver > 0.52 -> leans over, pUnder > 0.52 -> leans under
+LEAN_THRESHOLD = 0.60  # only count a pick as actionable at 60%+ confidence; everything else is a toss-up
 
 
 def poisson_cdf(k, lam):

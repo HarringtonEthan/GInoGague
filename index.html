@@ -259,10 +259,10 @@
     marker.classList.remove('is-over','is-under');
     var leanEl = document.getElementById('leanReadout');
     leanEl.classList.remove('is-over','is-under');
-    if(pOver > 0.52){
+    if(pOver > 0.60){
       marker.classList.add('is-over'); leanEl.classList.add('is-over');
       leanEl.textContent = 'Model leans OVER ('+Math.round(pOver*100)+'%)';
-    } else if(pUnder > 0.52){
+    } else if(pUnder > 0.60){
       marker.classList.add('is-under'); leanEl.classList.add('is-under');
       leanEl.textContent = 'Model leans UNDER ('+Math.round(pUnder*100)+'%)';
     } else {
