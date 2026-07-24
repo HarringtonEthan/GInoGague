@@ -82,9 +82,10 @@
           <div><span class="meter-stat-label">Under</span><span class="meter-stat-value" id="pctUnder">—</span></div>
           <div><span class="meter-stat-label">Over</span><span class="meter-stat-value" id="pctOver">—</span></div>
         </div>
-        <div class="meter">
+        <div class="meter" id="meterTrack">
+          <div class="meter-ice-shine"></div>
           <div class="meter-center-tick"></div>
-          <div class="meter-marker" id="meterMarker"></div>
+          <div class="meter-marker" id="meterMarker"><div class="meter-marker-shadow"></div></div>
         </div>
         <div class="meter-labels"><span>Under</span><span>Over</span></div>
         <p class="lean-readout" id="leanReadout">—</p>
@@ -118,8 +119,8 @@
     </div>
     <div class="formula-box">
       P(goals = k) = (e^−λ · λᵏ) / k!
-      <span>Track Record: λ = (home_GF·away_GA + away_GF·home_GA) / league_avg — GF/GA are recency-weighted, shrinkage-blended, walk-forward-only</span>
-      <span>Live matchup: λ = home_ATK·away_DEF·μ_home + away_ATK·home_DEF·μ_away — ratings fit on the complete 2025-26 season</span>
+      <span>Track Record — λ = (home_GF·away_GA + away_GF·home_GA) / league_avg, built from each team's recent form against this specific opponent, weighted toward recent games and reined in on small samples</span>
+      <span>Live matchup — λ = home_ATK·away_DEF·μ_home + away_ATK·home_DEF·μ_away, using attack/defense ratings fit across the whole finished 2025-26 season</span>
     </div>
   </section>
 
@@ -281,6 +282,11 @@
     } else {
       leanEl.textContent = 'Toss-up';
     }
+
+    // Tip the ice itself toward whichever side the puck is sliding to.
+    var maxTiltDeg = 6;
+    var tilt = (pOver - 0.5) * 2 * maxTiltDeg;
+    document.getElementById('meterTrack').style.transform = 'rotate('+tilt.toFixed(2)+'deg)';
 
     var edgeOver = pOver*100 - americanToImplied(overOdds);
     var edgeUnder = pUnder*100 - americanToImplied(underOdds);
