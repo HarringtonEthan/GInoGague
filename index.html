@@ -105,7 +105,7 @@
       </div>
       <div class="math-card">
         <p class="math-card-title">The projection</p>
-        <p class="math-card-body">λ (lambda) isn't just two scoring averages added together. Each team's offense is weighted against the specific opponent's defense, not the league as a whole, and normalized by the league's overall scoring rate. Recent games count more than early-season ones (a 15-game half-life), and a team with only a handful of games on the board gets blended toward the league average so a hot or cold week doesn't overstate what's actually known yet.</p>
+        <p class="math-card-body">Every team gets an attack rating and a defense rating, fit simultaneously across the complete, finished 2025-26 season — chosen so the model's expected goals match what actually happened, league-wide, all at once. λ scales each team's offense against the specific opponent's defense, with home and away scoring each getting their own baseline, since home teams score more on average. This tool projects hypothetical future matchups — it's a full-season-informed model, separate from the walk-forward one graded on the <a href="track-record.html">Track Record</a> page, which deliberately never got to see ahead.</p>
       </div>
       <div class="math-card">
         <p class="math-card-title">The edge</p>
@@ -114,58 +114,58 @@
     </div>
     <div class="formula-box">
       P(goals = k) = (e^−λ · λᵏ) / k!
-      <span>λ = (home GF/gm × away GA/gm + away GF/gm × home GA/gm) ÷ league avg goals/gm</span>
+      <span>λ = home_ATK·away_DEF·μ_home + away_ATK·home_DEF·μ_away</span>
     </div>
   </section>
 
   <section class="openers reveal" id="openers">
     <div class="section-header"><h2 class="title-accent">2026–27 opening night</h2><span class="data-badge">Tue, Sep 29, 2026</span></div>
-    <p class="section-note">Model projections for every opening-night game, built on final 2025–26 recency-weighted, defense-adjusted scoring rates.</p>
+    <p class="section-note">Model projections for every opening-night game, built on attack/defense ratings fit across the complete, finished 2025–26 season.</p>
     <div class="opener-list">
       <div class="opener-card">
         <div class="opener-date">5:00 PM ET</div>
         <div class="opener-matchup">
-          <div class="opener-team"><span class="opener-team-tag">Home</span><span class="opener-team-name">Carolina Hurricanes<span class="opener-team-abbr">CAR</span></span><span class="opener-team-stats">3.61 GF · 2.96 GA</span></div>
+          <div class="opener-team"><span class="opener-team-tag">Home</span><span class="opener-team-name">Carolina Hurricanes<span class="opener-team-abbr">CAR</span></span><span class="opener-team-stats">3.62 GF · 2.93 GA</span></div>
           <div class="opener-vs">VS</div>
-          <div class="opener-team"><span class="opener-team-tag">Away</span><span class="opener-team-name">Florida Panthers<span class="opener-team-abbr">FLA</span></span><span class="opener-team-stats">3.16 GF · 3.36 GA</span></div>
+          <div class="opener-team"><span class="opener-team-tag">Away</span><span class="opener-team-name">Florida Panthers<span class="opener-team-abbr">FLA</span></span><span class="opener-team-stats">3.08 GF · 3.33 GA</span></div>
         </div>
-        <div class="opener-projection"><span class="opener-projection-label">Model projected total (λ)</span><span class="opener-projection-value">6.87</span></div>
+        <div class="opener-projection"><span class="opener-projection-label">Model projected total (λ)</span><span class="opener-projection-value">6.76</span></div>
       </div>
       <div class="opener-card">
         <div class="opener-date">7:00 PM ET</div>
         <div class="opener-matchup">
-          <div class="opener-team"><span class="opener-team-tag">Home</span><span class="opener-team-name">Toronto Maple Leafs<span class="opener-team-abbr">TOR</span></span><span class="opener-team-stats">2.92 GF · 3.79 GA</span></div>
+          <div class="opener-team"><span class="opener-team-tag">Home</span><span class="opener-team-name">Toronto Maple Leafs<span class="opener-team-abbr">TOR</span></span><span class="opener-team-stats">3.12 GF · 3.61 GA</span></div>
           <div class="opener-vs">VS</div>
-          <div class="opener-team"><span class="opener-team-tag">Away</span><span class="opener-team-name">Montreal Canadiens<span class="opener-team-abbr">MTL</span></span><span class="opener-team-stats">3.28 GF · 2.88 GA</span></div>
+          <div class="opener-team"><span class="opener-team-tag">Away</span><span class="opener-team-name">Montreal Canadiens<span class="opener-team-abbr">MTL</span></span><span class="opener-team-stats">3.47 GF · 3.10 GA</span></div>
         </div>
-        <div class="opener-projection"><span class="opener-projection-label">Model projected total (λ)</span><span class="opener-projection-value">6.66</span></div>
+        <div class="opener-projection"><span class="opener-projection-label">Model projected total (λ)</span><span class="opener-projection-value">7.08</span></div>
       </div>
       <div class="opener-card">
         <div class="opener-date">8:00 PM ET</div>
         <div class="opener-matchup">
-          <div class="opener-team"><span class="opener-team-tag">Home</span><span class="opener-team-name">Boston Bruins<span class="opener-team-abbr">BOS</span></span><span class="opener-team-stats">3.23 GF · 2.91 GA</span></div>
+          <div class="opener-team"><span class="opener-team-tag">Home</span><span class="opener-team-name">Boston Bruins<span class="opener-team-abbr">BOS</span></span><span class="opener-team-stats">3.33 GF · 3.02 GA</span></div>
           <div class="opener-vs">VS</div>
-          <div class="opener-team"><span class="opener-team-tag">Away</span><span class="opener-team-name">New York Rangers<span class="opener-team-abbr">NYR</span></span><span class="opener-team-stats">3.17 GF · 3.00 GA</span></div>
+          <div class="opener-team"><span class="opener-team-tag">Away</span><span class="opener-team-name">New York Rangers<span class="opener-team-abbr">NYR</span></span><span class="opener-team-stats">2.92 GF · 3.01 GA</span></div>
         </div>
-        <div class="opener-projection"><span class="opener-projection-label">Model projected total (λ)</span><span class="opener-projection-value">6.05</span></div>
+        <div class="opener-projection"><span class="opener-projection-label">Model projected total (λ)</span><span class="opener-projection-value">6.04</span></div>
       </div>
       <div class="opener-card">
         <div class="opener-date">10:00 PM ET</div>
         <div class="opener-matchup">
-          <div class="opener-team"><span class="opener-team-tag">Home</span><span class="opener-team-name">Edmonton Oilers<span class="opener-team-abbr">EDM</span></span><span class="opener-team-stats">3.33 GF · 3.07 GA</span></div>
+          <div class="opener-team"><span class="opener-team-tag">Home</span><span class="opener-team-name">Edmonton Oilers<span class="opener-team-abbr">EDM</span></span><span class="opener-team-stats">3.42 GF · 3.33 GA</span></div>
           <div class="opener-vs">VS</div>
-          <div class="opener-team"><span class="opener-team-tag">Away</span><span class="opener-team-name">Vancouver Canucks<span class="opener-team-abbr">VAN</span></span><span class="opener-team-stats">2.76 GF · 3.86 GA</span></div>
+          <div class="opener-team"><span class="opener-team-tag">Away</span><span class="opener-team-name">Vancouver Canucks<span class="opener-team-abbr">VAN</span></span><span class="opener-team-stats">2.64 GF · 3.86 GA</span></div>
         </div>
-        <div class="opener-projection"><span class="opener-projection-label">Model projected total (λ)</span><span class="opener-projection-value">6.82</span></div>
+        <div class="opener-projection"><span class="opener-projection-label">Model projected total (λ)</span><span class="opener-projection-value">7.05</span></div>
       </div>
       <div class="opener-card">
         <div class="opener-date">10:30 PM ET</div>
         <div class="opener-matchup">
-          <div class="opener-team"><span class="opener-team-tag">Home</span><span class="opener-team-name">Vegas Golden Knights<span class="opener-team-abbr">VGK</span></span><span class="opener-team-stats">3.23 GF · 2.92 GA</span></div>
+          <div class="opener-team"><span class="opener-team-tag">Home</span><span class="opener-team-name">Vegas Golden Knights<span class="opener-team-abbr">VGK</span></span><span class="opener-team-stats">3.21 GF · 3.08 GA</span></div>
           <div class="opener-vs">VS</div>
-          <div class="opener-team"><span class="opener-team-tag">Away</span><span class="opener-team-name">Chicago Blackhawks<span class="opener-team-abbr">CHI</span></span><span class="opener-team-stats">2.62 GF · 3.50 GA</span></div>
+          <div class="opener-team"><span class="opener-team-tag">Away</span><span class="opener-team-name">Chicago Blackhawks<span class="opener-team-abbr">CHI</span></span><span class="opener-team-stats">2.60 GF · 3.36 GA</span></div>
         </div>
-        <div class="opener-projection"><span class="opener-projection-label">Model projected total (λ)</span><span class="opener-projection-value">6.06</span></div>
+        <div class="opener-projection"><span class="opener-projection-label">Model projected total (λ)</span><span class="opener-projection-value">6.02</span></div>
       </div>
     </div>
   </section>
@@ -181,38 +181,38 @@
 
 <script>
   var TEAMS = [
-    {abbr:'ANA',city:'Anaheim',name:'Ducks',full:'Anaheim Ducks',gf:3.227,ga:3.453},
-    {abbr:'BOS',city:'Boston',name:'Bruins',full:'Boston Bruins',gf:3.228,ga:2.909},
-    {abbr:'BUF',city:'Buffalo',name:'Sabres',full:'Buffalo Sabres',gf:3.538,ga:2.867},
-    {abbr:'CGY',city:'Calgary',name:'Flames',full:'Calgary Flames',gf:2.797,ga:3.235},
-    {abbr:'CAR',city:'Carolina',name:'Hurricanes',full:'Carolina Hurricanes',gf:3.605,ga:2.957},
-    {abbr:'CHI',city:'Chicago',name:'Blackhawks',full:'Chicago Blackhawks',gf:2.623,ga:3.504},
-    {abbr:'COL',city:'Colorado',name:'Avalanche',full:'Colorado Avalanche',gf:3.285,ga:2.575},
-    {abbr:'CBJ',city:'Columbus',name:'Blue Jackets',full:'Columbus Blue Jackets',gf:2.926,ga:2.963},
-    {abbr:'DAL',city:'Dallas',name:'Stars',full:'Dallas Stars',gf:3.302,ga:2.868},
-    {abbr:'DET',city:'Detroit',name:'Red Wings',full:'Detroit Red Wings',gf:2.913,ga:3.363},
-    {abbr:'EDM',city:'Edmonton',name:'Oilers',full:'Edmonton Oilers',gf:3.327,ga:3.067},
-    {abbr:'FLA',city:'Florida',name:'Panthers',full:'Florida Panthers',gf:3.163,ga:3.360},
-    {abbr:'LAK',city:'Los Angeles',name:'Kings',full:'Los Angeles Kings',gf:2.962,ga:3.105},
-    {abbr:'MIN',city:'Minnesota',name:'Wild',full:'Minnesota Wild',gf:3.314,ga:3.085},
-    {abbr:'MTL',city:'Montreal',name:'Canadiens',full:'Montreal Canadiens',gf:3.276,ga:2.877},
-    {abbr:'NSH',city:'Nashville',name:'Predators',full:'Nashville Predators',gf:3.130,ga:3.098},
-    {abbr:'NJD',city:'New Jersey',name:'Devils',full:'New Jersey Devils',gf:3.015,ga:3.194},
-    {abbr:'NYI',city:'New York',name:'Islanders',full:'New York Islanders',gf:2.758,ga:3.127},
-    {abbr:'NYR',city:'New York',name:'Rangers',full:'New York Rangers',gf:3.168,ga:3.004},
-    {abbr:'OTT',city:'Ottawa',name:'Senators',full:'Ottawa Senators',gf:3.385,ga:2.763},
-    {abbr:'PHI',city:'Philadelphia',name:'Flyers',full:'Philadelphia Flyers',gf:3.227,ga:2.830},
-    {abbr:'PIT',city:'Pittsburgh',name:'Penguins',full:'Pittsburgh Penguins',gf:3.712,ga:3.534},
-    {abbr:'SJS',city:'San Jose',name:'Sharks',full:'San Jose Sharks',gf:3.054,ga:3.482},
-    {abbr:'SEA',city:'Seattle',name:'Kraken',full:'Seattle Kraken',gf:2.743,ga:3.415},
-    {abbr:'STL',city:'St. Louis',name:'Blues',full:'St. Louis Blues',gf:3.268,ga:2.876},
-    {abbr:'TBL',city:'Tampa Bay',name:'Lightning',full:'Tampa Bay Lightning',gf:3.341,ga:3.041},
-    {abbr:'TOR',city:'Toronto',name:'Maple Leafs',full:'Toronto Maple Leafs',gf:2.922,ga:3.795},
-    {abbr:'UTA',city:'Utah',name:'Mammoth',full:'Utah Mammoth',gf:3.401,ga:3.168},
-    {abbr:'VAN',city:'Vancouver',name:'Canucks',full:'Vancouver Canucks',gf:2.762,ga:3.862},
-    {abbr:'VGK',city:'Vegas',name:'Golden Knights',full:'Vegas Golden Knights',gf:3.227,ga:2.917},
-    {abbr:'WPG',city:'Winnipeg',name:'Jets',full:'Winnipeg Jets',gf:2.787,ga:3.331},
-    {abbr:'WSH',city:'Washington',name:'Capitals',full:'Washington Capitals',gf:3.254,ga:3.027}
+    {abbr:'ANA',city:'Anaheim',name:'Ducks',full:'Anaheim Ducks',atk:1.0611,def:1.1412},
+    {abbr:'BOS',city:'Boston',name:'Bruins',full:'Boston Bruins',atk:1.0664,def:0.9669},
+    {abbr:'BUF',city:'Buffalo',name:'Sabres',full:'Buffalo Sabres',atk:1.1237,def:0.9350},
+    {abbr:'CGY',city:'Calgary',name:'Flames',full:'Calgary Flames',atk:0.8209,def:1.0092},
+    {abbr:'CAR',city:'Carolina',name:'Hurricanes',full:'Carolina Hurricanes',atk:1.1574,def:0.9361},
+    {abbr:'CHI',city:'Chicago',name:'Blackhawks',full:'Chicago Blackhawks',atk:0.8300,def:1.0741},
+    {abbr:'COL',city:'Colorado',name:'Avalanche',full:'Colorado Avalanche',atk:1.1668,def:0.8009},
+    {abbr:'CBJ',city:'Columbus',name:'Blue Jackets',full:'Columbus Blue Jackets',atk:0.9916,def:0.9786},
+    {abbr:'DAL',city:'Dallas',name:'Stars',full:'Dallas Stars',atk:1.0834,def:0.8888},
+    {abbr:'DET',city:'Detroit',name:'Red Wings',full:'Detroit Red Wings',atk:0.9428,def:0.9948},
+    {abbr:'EDM',city:'Edmonton',name:'Oilers',full:'Edmonton Oilers',atk:1.0927,def:1.0652},
+    {abbr:'FLA',city:'Florida',name:'Panthers',full:'Florida Panthers',atk:0.9858,def:1.0657},
+    {abbr:'LAK',city:'Los Angeles',name:'Kings',full:'Los Angeles Kings',atk:0.8689,def:0.9690},
+    {abbr:'MIN',city:'Minnesota',name:'Wild',full:'Minnesota Wild',atk:1.0566,def:0.9443},
+    {abbr:'MTL',city:'Montreal',name:'Canadiens',full:'Montreal Canadiens',atk:1.1088,def:0.9914},
+    {abbr:'NSH',city:'Nashville',name:'Predators',full:'Nashville Predators',atk:0.9641,def:1.0541},
+    {abbr:'NJD',city:'New Jersey',name:'Devils',full:'New Jersey Devils',atk:0.9014,def:0.9782},
+    {abbr:'NYI',city:'New York',name:'Islanders',full:'New York Islanders',atk:0.9120,def:0.9331},
+    {abbr:'NYR',city:'New York',name:'Rangers',full:'New York Rangers',atk:0.9328,def:0.9640},
+    {abbr:'OTT',city:'Ottawa',name:'Senators',full:'Ottawa Senators',atk:1.0842,def:0.9554},
+    {abbr:'PHI',city:'Philadelphia',name:'Flyers',full:'Philadelphia Flyers',atk:0.9786,def:0.9392},
+    {abbr:'PIT',city:'Pittsburgh',name:'Penguins',full:'Pittsburgh Penguins',atk:1.1518,def:1.0451},
+    {abbr:'SJS',city:'San Jose',name:'Sharks',full:'San Jose Sharks',atk:0.9752,def:1.1468},
+    {abbr:'SEA',city:'Seattle',name:'Kraken',full:'Seattle Kraken',atk:0.8747,def:1.0286},
+    {abbr:'STL',city:'St. Louis',name:'Blues',full:'St. Louis Blues',atk:0.8981,def:1.0107},
+    {abbr:'TBL',city:'Tampa Bay',name:'Lightning',full:'Tampa Bay Lightning',atk:1.1317,def:0.8973},
+    {abbr:'TOR',city:'Toronto',name:'Maple Leafs',full:'Toronto Maple Leafs',atk:0.9968,def:1.1556},
+    {abbr:'UTA',city:'Utah',name:'Mammoth',full:'Utah Mammoth',atk:1.0413,def:0.9438},
+    {abbr:'VAN',city:'Vancouver',name:'Canucks',full:'Vancouver Canucks',atk:0.8428,def:1.2345},
+    {abbr:'VGK',city:'Vegas',name:'Golden Knights',full:'Vegas Golden Knights',atk:1.0263,def:0.9863},
+    {abbr:'WPG',city:'Winnipeg',name:'Jets',full:'Winnipeg Jets',atk:0.9011,def:1.0160},
+    {abbr:'WSH',city:'Washington',name:'Capitals',full:'Washington Capitals',atk:1.0303,def:0.9502}
   ];
 
   function poissonCDF(k, lambda){
@@ -238,9 +238,13 @@
   }
   function formatOdds(n){ return n>0 ? ('+'+n) : String(n); }
 
-  // League-wide average goals per team per game, 2025-26 season final (used
-  // to normalize the attack/defense formula below).
-  var LEAGUE_AVG_GOALS = 3.126905;
+  // Home/away league scoring baselines, fit on the complete 2025-26 season
+  // (every team's attack/def rating below is normalized against these).
+  var MU_HOME = 3.192073;
+  var MU_AWAY = 3.061738;
+  var MU_AVG = (MU_HOME + MU_AWAY) / 2;
+  function displayGF(team){ return team.atk * MU_AVG; }
+  function displayGA(team){ return team.def * MU_AVG; }
 
   var homeTeam = null, awayTeam = null;
 
@@ -250,7 +254,7 @@
     var overOdds = snapOdds(parseInt(document.getElementById('overOddsSlider').value,10));
     var underOdds = snapOdds(parseInt(document.getElementById('underOddsSlider').value,10));
 
-    var lambda = (homeTeam.gf*awayTeam.ga + awayTeam.gf*homeTeam.ga) / LEAGUE_AVG_GOALS;
+    var lambda = homeTeam.atk*awayTeam.def*MU_HOME + awayTeam.atk*homeTeam.def*MU_AWAY;
     var k = Math.floor(line-0.5);
     var pUnder = poissonCDF(k, lambda);
     var pOver = 1-pUnder;
@@ -333,14 +337,14 @@
 
   initCombo(document.getElementById('homeInput'), document.getElementById('homeList'), function(team){
     homeTeam = team;
-    document.getElementById('homeGF').textContent = team.gf.toFixed(2);
-    document.getElementById('homeGA').textContent = team.ga.toFixed(2);
+    document.getElementById('homeGF').textContent = displayGF(team).toFixed(2);
+    document.getElementById('homeGA').textContent = displayGA(team).toFixed(2);
     calculate();
   });
   initCombo(document.getElementById('awayInput'), document.getElementById('awayList'), function(team){
     awayTeam = team;
-    document.getElementById('awayGF').textContent = team.gf.toFixed(2);
-    document.getElementById('awayGA').textContent = team.ga.toFixed(2);
+    document.getElementById('awayGF').textContent = displayGF(team).toFixed(2);
+    document.getElementById('awayGA').textContent = displayGA(team).toFixed(2);
     calculate();
   });
 
@@ -363,10 +367,10 @@
   document.getElementById('homeInput').value = defHome.full;
   document.getElementById('awayInput').value = defAway.full;
   homeTeam = defHome; awayTeam = defAway;
-  document.getElementById('homeGF').textContent = defHome.gf.toFixed(2);
-  document.getElementById('homeGA').textContent = defHome.ga.toFixed(2);
-  document.getElementById('awayGF').textContent = defAway.gf.toFixed(2);
-  document.getElementById('awayGA').textContent = defAway.ga.toFixed(2);
+  document.getElementById('homeGF').textContent = displayGF(defHome).toFixed(2);
+  document.getElementById('homeGA').textContent = displayGA(defHome).toFixed(2);
+  document.getElementById('awayGF').textContent = displayGF(defAway).toFixed(2);
+  document.getElementById('awayGA').textContent = displayGA(defAway).toFixed(2);
   calculate();
 
   var revealEls = document.querySelectorAll('.reveal');
