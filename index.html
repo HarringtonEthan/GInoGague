@@ -101,11 +101,15 @@
     <div class="math-grid">
       <div class="math-card">
         <p class="math-card-title">Poisson distribution</p>
-        <p class="math-card-body">Goals don't follow a bell curve — they're rare, semi-random events clustered around an average. The Poisson distribution is the standard way statisticians model exactly that, and it's the math behind every number above.</p>
+        <p class="math-card-body">Goals don't follow a bell curve — they're rare, semi-random events clustered around an average. The Poisson distribution is the standard way statisticians model exactly that. Once you have a projected combined-goals average (λ) for a matchup, the Poisson formula converts it into a full probability for every possible total — which is what turns into an Over/Under percentage. This is the math behind both models below.</p>
       </div>
       <div class="math-card">
-        <p class="math-card-title">The projection</p>
-        <p class="math-card-body">Every team gets an attack rating and a defense rating, fit simultaneously across the complete, finished 2025-26 season — chosen so the model's expected goals match what actually happened, league-wide, all at once. λ scales each team's offense against the specific opponent's defense, with home and away scoring each getting their own baseline, since home teams score more on average. This tool projects hypothetical future matchups — it's a full-season-informed model, separate from the walk-forward one graded on the <a href="track-record.html">Track Record</a> page, which deliberately never got to see ahead.</p>
+        <p class="math-card-title">The Track Record model</p>
+        <p class="math-card-body">The <a href="track-record.html">Track Record</a> page grades a genuine walk-forward model: for every 2025-26 game, it only uses each team's actual results from games played strictly <em>before</em> that night (a team needs 10+ games played before it's even eligible). Each team's goals-for and goals-against are recency-weighted — a game from 3 weeks ago counts half as much as last night's — and blended toward the league average so a hot or cold streak in a small sample doesn't get overweighted. λ then pairs each team's offense against the specific opponent's defense, both directions, scaled by the league-wide scoring rate at that point in the season. This is what actually produced the 109-87 (55.6%), +$751, +3.8% ROI record over 196 graded games.</p>
+      </div>
+      <div class="math-card">
+        <p class="math-card-title">The live matchup model</p>
+        <p class="math-card-body">The "Build the matchup" tool above and the Opening Night projections use a different, forward-looking model: every team gets an attack rating and a defense rating fit simultaneously across the <em>complete, finished</em> 2025-26 season, chosen so the model's expected goals match what actually happened league-wide, all at once. That's legitimate for projecting a genuinely future game (like 2026-27) — but it's not the model behind the Track Record numbers, since it was fit with knowledge of the whole season's results. The two are kept deliberately separate.</p>
       </div>
       <div class="math-card">
         <p class="math-card-title">The edge</p>
@@ -114,7 +118,8 @@
     </div>
     <div class="formula-box">
       P(goals = k) = (e^−λ · λᵏ) / k!
-      <span>λ = home_ATK·away_DEF·μ_home + away_ATK·home_DEF·μ_away</span>
+      <span>Track Record: λ = (home_GF·away_GA + away_GF·home_GA) / league_avg — GF/GA are recency-weighted, shrinkage-blended, walk-forward-only</span>
+      <span>Live matchup: λ = home_ATK·away_DEF·μ_home + away_ATK·home_DEF·μ_away — ratings fit on the complete 2025-26 season</span>
     </div>
   </section>
 

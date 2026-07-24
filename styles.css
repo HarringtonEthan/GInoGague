@@ -105,7 +105,7 @@
 
   .math-section{max-width:1080px;margin:100px auto 0;padding:0 32px;}
   .section-title{font:var(--font-display);font-size:32px;margin-bottom:44px;max-width:560px;}
-  .math-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:36px;}
+  .math-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-bottom:36px;}
   .math-card{position:relative;padding-top:20px;}
   .math-card::before{content:"";position:absolute;top:0;left:0;height:3px;width:40px;border-radius:2px;background:linear-gradient(90deg, var(--line-blue), var(--line-red));transition:width 0.3s ease;}
   .math-card:hover::before{width:100%;}
