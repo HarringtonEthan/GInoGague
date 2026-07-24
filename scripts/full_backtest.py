@@ -77,6 +77,8 @@ def main():
     cum_gf = defaultdict(int)
     cum_ga = defaultdict(int)
     games_played = defaultdict(int)
+    league_goals_total = 0
+    league_teamgames_total = 0
 
     output = []
 
@@ -99,7 +101,11 @@ def main():
         }
 
         if eligible:
-            lam = row['home_gf_avg'] + row['away_gf_avg']
+            # Attack-strength x defense-strength Poisson model, normalized by
+            # league-wide scoring rate so far (walk-forward, no leakage):
+            #   lambda = (home_GF*away_GA + away_GF*home_GA) / leagueGoals
+            league_goals = league_goals_total / league_teamgames_total
+            lam = (row['home_gf_avg'] * row['away_ga_avg'] + row['away_gf_avg'] * row['home_ga_avg']) / league_goals
             key = (g['date'], away, home)
             ou_line, over_odds, under_odds = odds[key]  # verified 100% coverage already
             k = math.floor(ou_line - 0.5)
@@ -149,6 +155,8 @@ def main():
         cum_gf[away] += away_g; cum_ga[away] += home_g
         cum_gf[home] += home_g; cum_ga[home] += away_g
         games_played[away] += 1; games_played[home] += 1
+        league_goals_total += away_g + home_g
+        league_teamgames_total += 2
 
     # write full detail CSV
     with open('full_backtest_output.csv', 'w', newline='') as f:
