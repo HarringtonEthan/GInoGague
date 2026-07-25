@@ -18,7 +18,6 @@
     <a href="#builder">Matchup</a>
     <a href="#math">The Math</a>
     <a href="#openers">Opening Night</a>
-    <a href="track-record.html">Track Record</a>
     <a href="experimental-model.html">Experimental Model</a>
   </nav>
 </header>
@@ -106,21 +105,21 @@
         <p class="math-card-body">Goals don't follow a bell curve — they're rare, semi-random events clustered around an average. The Poisson distribution is the standard way statisticians model exactly that. Once you have a projected combined-goals average for a matchup, the Poisson formula converts it into a full probability for every possible total — which is what turns into an Over/Under percentage. This is the math behind both models below.</p>
       </div>
       <div class="math-card">
-        <p class="math-card-title">The Track Record model</p>
-        <p class="math-card-body">The <a href="track-record.html">Track Record</a> page grades a genuine walk-forward model: for every 2025-26 game, it only uses each team's actual results from games played strictly <em>before</em> that night (a team needs 10+ games played before it's even eligible). Each team's goals-for and goals-against are recency-weighted — a game from 3 weeks ago counts half as much as last night's — and blended toward the league average so a hot or cold streak in a small sample doesn't get overweighted. The projected total then pairs each team's offense against the specific opponent's defense, both directions, scaled by the league-wide scoring rate at that point in the season. This is what actually produced the 109-87 (55.6%), +$751, +3.8% ROI record over 196 graded games.</p>
+        <p class="math-card-title">The experimental model</p>
+        <p class="math-card-body">The <a href="experimental-model.html">Experimental Model</a> page uses the same walk-forward mechanics as a real backtest — for every game, only real results from games played strictly <em>before</em> that night, recency-weighted and blended toward the league average for small samples — but with one important difference: its settings were deliberately chosen by searching for whatever produced a winning record on both the 2024-25 and 2025-26 seasons at once. That's explained plainly on the page itself, because it means those two backtests aren't proof of anything — the real test is how it does on the 2026-27 season, tracked live as it happens.</p>
       </div>
       <div class="math-card">
         <p class="math-card-title">The live matchup model</p>
-        <p class="math-card-body">The "Build the matchup" tool above and the Opening Night projections use a different, forward-looking model: every team gets an attack rating and a defense rating fit simultaneously across the <em>complete, finished</em> 2025-26 season, chosen so the model's expected goals match what actually happened league-wide, all at once. That's legitimate for projecting a genuinely future game (like 2026-27) — but it's not the model behind the Track Record numbers, since it was fit with knowledge of the whole season's results. The two are kept deliberately separate.</p>
+        <p class="math-card-body">The "Build the matchup" tool above and the Opening Night projections use a different, forward-looking model: every team gets an attack rating and a defense rating fit simultaneously across the <em>complete, finished</em> 2025-26 season, chosen so the model's expected goals match what actually happened league-wide, all at once. That's legitimate for projecting a genuinely future game (like 2026-27), and it's kept separate from the experimental model above.</p>
       </div>
       <div class="math-card">
         <p class="math-card-title">The edge</p>
-        <p class="math-card-body">Sportsbook odds imply their own probability. Edge is the model's probability minus the market's. Positive means the model sees more value than the price suggests — negative means the market's already ahead of it. Only picks at 60%+ confidence are treated as real bets; everything else is a toss-up.</p>
+        <p class="math-card-body">Sportsbook odds imply their own probability. Edge is the model's probability minus the market's. Positive means the model sees more value than the price suggests — negative means the market's already ahead of it. Only picks at 60%+ confidence are treated as real bets on this page; everything else is a toss-up.</p>
       </div>
     </div>
     <div class="formula-box">
       P(goals = k) = (e^−avg × avgᵏ) ÷ k!
-      <span>Track Record — projected total = (home GF × away GA + away GF × home GA) ÷ league average, built from each team's recent form against this specific opponent, weighted toward recent games and reined in on small samples</span>
+      <span>Experimental model — projected total = (home GF × away GA + away GF × home GA) ÷ league average, weighted toward recent games and reined in on small samples, with settings fit to match known results rather than decided in advance</span>
       <span>Live matchup — projected total = (home attack × away defense × home-ice average) + (away attack × home defense × away-ice average), using ratings fit across the whole finished 2025-26 season</span>
     </div>
   </section>
