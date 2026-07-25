@@ -102,7 +102,7 @@
     <div class="math-grid">
       <div class="math-card">
         <p class="math-card-title">Poisson distribution</p>
-        <p class="math-card-body">Goals don't follow a bell curve — they're rare, semi-random events clustered around an average. The Poisson distribution is the standard way statisticians model exactly that. Once you have a projected combined-goals average for a matchup, the Poisson formula converts it into a full probability for every possible total — which is what turns into an Over/Under percentage. This is the math behind both models below.</p>
+        <p class="math-card-body">Goals don't follow a bell curve — they're rare, semi-random events clustered around an average. The Poisson distribution is the standard way statisticians model exactly that. Once you have a <strong>projected total</strong> — a projected combined-goals average for a matchup — the Poisson formula converts it into a full probability for every possible outcome, which is what turns into an Over/Under percentage. The two models below each calculate that same projected total differently; this is the formula both of them feed into.</p>
       </div>
       <div class="math-card">
         <p class="math-card-title">The experimental model</p>
@@ -118,7 +118,7 @@
       </div>
     </div>
     <div class="formula-box">
-      P(goals = k) = (e^−avg × avgᵏ) ÷ k!
+      P(goals = k) = (e^−projected total × projected totalᵏ) ÷ k!
       <span>Experimental model — projected total = (home GF × away GA + away GF × home GA) ÷ league average, weighted toward recent games and reined in on small samples, with settings fit to match known results rather than decided in advance</span>
       <span>Live matchup — projected total = (home attack × away defense × home-ice average) + (away attack × home defense × away-ice average), using ratings fit across the whole finished 2025-26 season</span>
     </div>
