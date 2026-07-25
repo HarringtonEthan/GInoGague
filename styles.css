@@ -127,7 +127,7 @@
 
   .math-section{max-width:1080px;margin:100px auto 0;padding:0 32px;}
   .section-title{font:var(--font-display);font-size:32px;margin-bottom:44px;max-width:560px;}
-  .math-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-bottom:36px;}
+  .math-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:36px;}
   .math-card{position:relative;padding-top:20px;}
   .math-card::before{content:"";position:absolute;top:0;left:0;height:3px;width:40px;border-radius:2px;background:linear-gradient(90deg, var(--line-blue), var(--line-red));transition:width 0.3s ease;}
   .math-card:hover::before{width:100%;}
@@ -135,10 +135,19 @@
   .math-card-body{font-size:14px;color:var(--ice-mist);line-height:1.65;}
   .math-card-body a{color:var(--line-blue);text-decoration:none;border-bottom:1px solid rgba(61,143,232,0.4);}
   .math-card-body a:hover{border-bottom-color:var(--line-blue);}
-  .formula-box{background:var(--rink-navy-raised);border:1px solid rgba(239,246,250,0.1);border-radius:10px;padding:20px 22px;text-align:center;font-family:var(--font-mono);font-size:16px;color:var(--ice-white);}
+  .formula-box{background:var(--rink-navy-raised);border:1px solid rgba(239,246,250,0.1);border-radius:10px;padding:24px 22px;text-align:center;font-family:var(--font-mono);font-size:16px;color:var(--ice-white);margin-bottom:20px;}
   .formula-box span{display:block;font-size:12px;color:var(--ice-mist);margin-top:10px;font-family:var(--font-body);}
   .formula-box span.formula-box-lead{font-style:italic;opacity:0.85;margin-top:16px;}
   .formula-box span strong{color:var(--ice-white);font-style:normal;}
+  .formula-box-title{font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--line-blue);margin-bottom:8px;}
+  .formula-box-title-secondary{margin-top:22px;padding-top:20px;border-top:1px dashed rgba(239,246,250,0.12);}
+
+  .math-defs{background:var(--rink-navy-raised);border:1px solid rgba(239,246,250,0.08);border-radius:14px;padding:26px 28px;}
+  .math-defs-title{font:var(--font-display);font-size:16px;margin-bottom:16px;color:var(--ice-white);}
+  .math-defs dl{display:flex;flex-direction:column;gap:14px;}
+  .math-def-row{display:grid;grid-template-columns:180px 1fr;gap:16px;align-items:baseline;}
+  .math-def-row dt{font-family:var(--font-mono);font-size:13px;color:var(--line-blue);font-weight:600;}
+  .math-def-row dd{font-size:14px;color:var(--ice-mist);line-height:1.6;}
 
   .section-header{display:flex;align-items:baseline;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
   .section-header h2{font:var(--font-display);font-size:28px;}
@@ -205,6 +214,8 @@
     .predictor-teams{grid-template-columns:1fr;}
     .vs-divider{text-align:center;padding:0;}
     .math-grid{grid-template-columns:1fr;gap:28px;}
+    .math-def-row{grid-template-columns:1fr;gap:4px;}
+    .math-defs{padding:22px 20px;}
     .predictor-card{padding:24px 20px;}
     .meter-stat-value{font-size:26px;}
     .opener-matchup{flex-direction:column;align-items:stretch;gap:10px;}
