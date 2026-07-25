@@ -64,14 +64,22 @@
   .team-panel-label{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ice-mist);margin-bottom:10px;}
 
   .team-combo{position:relative;}
-  .team-combo-input{width:100%;background:var(--rink-navy);border:1px solid rgba(239,246,250,0.15);border-radius:8px;padding:12px 14px;color:var(--ice-white);font:var(--font-display);font-size:17px;transition:border-color 0.2s ease;}
+  .team-combo-input{width:100%;background:var(--rink-navy);border:1px solid rgba(239,246,250,0.15);border-radius:8px;padding:12px 14px 12px 46px;color:var(--ice-white);font:var(--font-display);font-size:17px;transition:border-color 0.2s ease;}
   .team-combo-input:focus{outline:2px solid var(--line-blue);outline-offset:1px;}
   .team-combo-input::placeholder{color:var(--ice-mist);font-family:var(--font-body);font-weight:400;font-size:14px;}
   .team-combo-list{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;max-height:230px;overflow-y:auto;background:#0d2035;border:1px solid rgba(239,246,250,0.15);border-radius:10px;box-shadow:0 20px 40px -10px rgba(0,0,0,0.65);z-index:30;}
   .team-combo-list.open{display:block;}
-  .combo-item{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;cursor:pointer;font-size:14px;}
+  .combo-item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;font-size:14px;}
+  .combo-item-name{display:flex;align-items:center;gap:10px;min-width:0;}
   .combo-item:hover,.combo-item.active{background:rgba(239,246,250,0.08);}
-  .combo-item-abbr{font-family:var(--font-mono);font-size:11px;color:var(--ice-mist);letter-spacing:0.06em;}
+  .combo-item-abbr{font-family:var(--font-mono);font-size:11px;color:var(--ice-mist);letter-spacing:0.06em;flex-shrink:0;}
+
+  .team-badge{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;
+    font-family:var(--font-mono);font-weight:700;letter-spacing:0.02em;flex-shrink:0;
+    border:2px solid rgba(255,255,255,0.14);box-shadow:0 2px 5px rgba(0,0,0,0.35);}
+  .team-badge-sm{width:22px;height:22px;font-size:8px;}
+  .team-badge-input{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;font-size:9px;pointer-events:none;}
+  .team-badge-opener{width:24px;height:24px;font-size:9px;margin-right:8px;vertical-align:middle;}
   .combo-empty{padding:12px 14px;color:var(--ice-mist);font-size:13px;}
 
   .team-stats-display{display:flex;gap:16px;margin-top:12px;font-size:12px;color:var(--ice-mist);font-family:var(--font-mono);}
