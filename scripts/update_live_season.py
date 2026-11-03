@@ -273,9 +273,8 @@ def update_index(path, form, league, through):
                f"  var LEAGUE_AVG = {league};")
     html = sub_once(r"  // League-wide average goals per team per game.*?var LEAGUE_AVG = [\d.]+;",
                     lambda m: comment, html, "LEAGUE_AVG", flags=re.S)
-    html = sub_once(r"\d{4}–\d{2} team stats[^<]*?via Hockey-Reference\.com\.",
-                    f"2026–27 team stats through {pretty_date(through)} via Hockey-Reference.com.",
-                    html, "footer stats credit")
+    html = sub_once(r"\d{4}–\d{2} team stats[^<]*",
+                    f"2026–27 team stats through {pretty_date(through)}.", html, "footer stats credit")
     with open(path, 'w') as f:
         f.write(html)
 
@@ -286,18 +285,19 @@ def update_experimental(path, rows, through):
     body = '\n'.join(js_rows(rows))
     html = sub_once(r"  var EXP_2627 = \[.*?\];",
                     lambda m: "  var EXP_2627 = [\n" + body + "\n  ];", html, "EXP_2627", flags=re.S)
-    note = ("This is the real test. The model was locked before the 2026-27 season began and is not being "
-            "touched now that it's underway — every pick tracked as it happens, using only results known "
-            f"before each game was played. Graded through {pretty_date(through)}.")
+    note = ("This is the real test. The model's settings were locked before the 2026-27 season began and "
+            "haven't been changed since — every pick uses only results known before that game was played. "
+            f"Graded through {pretty_date(through)}.")
     html = sub_once(r'(<p class="section-note" id="expNote2627">).*?(</p>)',
                     lambda m: m.group(1) + note + m.group(2), html, "2026-27 tab note", flags=re.S)
     # One-time wording change from "hasn't started" to "underway"; a no-op on later runs.
     html = re.sub(r"The only real test is the 2026-27 season, which hasn't happened yet\..*?(</div>)",
-                  lambda m: "The only real test is the 2026-27 season, now underway. Its tab fills in game by "
-                            "game, live — untouched, no retuning allowed now that it's begun." + m.group(1),
+                  lambda m: "The only real test is the 2026-27 season, now underway — its tab is graded with "
+                            "the settings locked before the season began, no retuning allowed." + m.group(1),
                   html, count=1, flags=re.S)
-    html = re.sub(r"(?<!2026–27, )2025–26 and 2024–25 team stats via Hockey-Reference\.com\.",
-                  "2026–27, 2025–26 and 2024–25 team stats via Hockey-Reference.com.", html, count=1)
+    html = sub_once(r"(2025–26 and 2024–25 team stats via Hockey-Reference\.com\.)[^<]*",
+                    lambda m: f"{m.group(1)} 2026–27 results through {pretty_date(through)}.", html,
+                    "footer stats credit")
     with open(path, 'w') as f:
         f.write(html)
 

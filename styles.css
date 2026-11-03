@@ -177,6 +177,9 @@
   .opener-projection{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px dashed rgba(239,246,250,0.12);}
   .opener-projection-label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ice-mist);}
   .opener-projection-value{font-family:var(--font-mono);font-size:24px;font-weight:600;color:var(--ice-white);}
+  .opener-final{display:flex;align-items:baseline;gap:12px;padding-top:10px;}
+  .opener-final-score{flex:1;font-family:var(--font-mono);font-size:14px;color:var(--ice-white);}
+  .opener-final-total{font-family:var(--font-mono);font-size:14px;color:var(--ice-mist);}
 
   .track-record{max-width:1080px;margin:96px auto 0;padding:0 32px;}
   .track-season-toggle{display:flex;gap:10px;margin:18px 0 20px;flex-wrap:wrap;}
